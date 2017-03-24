@@ -1,0 +1,42 @@
+﻿@model Tuple<List<MandatoryA.Models.Reservation>, MandatoryA.Infrastructure.Repository>
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<h2>Invoice</h2>
+@using (Html.BeginForm("Invoice/", "Invoices", FormMethod.Get) ){
+
+<table class="table" align="center" style="width:400px; border-collapse:collapse; border: 2px solid  grey;">
+    <thead>
+        <tr>
+            <th>@Html.DropDownList("id", (SelectList)ViewBag.customerList)  <button type="submit">Get Invoice</button><br />
+                Invoice @Model.Item1[0].Customer.Firstname @Model.Item1[0].Customer.Lastname <br />
+                @Model.Item1[0].Customer.Address<br />
+                @Model.Item1[0].Customer.Zipcode @Model.Item1[0].Customer.City<br /><br />
+</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            foreach (var item in Model.Item1)
+            {
+                <tr>
+                    <td>
+                        Species: @item.Specie<br />
+                        Name: @item.Petname<br />
+                        Recieved by: @item.Employee.Firstname @item.Employee.Lastname<br />
+                        Period: @item.StartDate.ToString("dd-MM-yyyy") to @item.EndDate.ToString("dd-MM-yyyy")<br />
+                        Days: @((item.EndDate - item.StartDate).Days)<br />
+                        Price: @(Model.Item2.Prices[item.Specie].ToString("N"))<br />
+                        Total: @(((item.EndDate - item.StartDate).Days * Model.Item2.Prices[item.Specie]).ToString("N")) kr.<br />
+
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+}
+

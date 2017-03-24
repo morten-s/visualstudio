@@ -1,0 +1,37 @@
+﻿@model MandatoryA.Infrastructure.Repository
+
+@{
+    ViewBag.Title = "Reservations";
+}
+
+<h2>Reservations</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Species</th>
+            <th>Name</th>
+            <th>Arrival</th>
+            <th>Owner</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int index = 1;
+            foreach (var item in Model.Reservations)
+            {
+                <tr>
+                    <th scope="row">@item.ReservationID</th>
+                    <td>@item.Specie</td>
+                    <td>@item.Petname</td>
+                    <td>@item.StartDate.DayOfWeek @item.StartDate.ToString("dd MMM yyyy HH:mm")</td>
+                    <td>@item.Customer.Firstname</td>
+                    <td>@item.Customer.Phone</td>
+                </tr>
+                index++;
+            }
+        }
+
+    </tbody>
+</table>

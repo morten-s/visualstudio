@@ -1,0 +1,52 @@
+﻿body {
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+a.navbar-brand.myheader {
+    font-size: 32px;
+    line-height:32px;
+    /*color:#fff;*/
+}
+a.adminmenu{
+    font-size:16px;
+}
+.anavbar-header{
+    height:75px;
+}
+footer{
+    clear:both;
+}
+.navbar-nav {
+    padding-top:0px;
+}
+.navbar-right{
+    padding-top:20px;
+}
+
+  
+        div#contact-info, div#pricelist {
+            background-color:#eee;
+            height: auto;
+            margin: 0 0 1em 1em;
+            **border: 1px solid;
+            **border-color: navy;
+            padding: 0 0.4em;
+        }
+
+        p + ul {
+            margin-top: -10px;
+            margin-left:-20px;
+        }

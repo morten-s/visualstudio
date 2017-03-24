@@ -1,0 +1,37 @@
+﻿@model MandatoryA.Infrastructure.Repository
+@{
+    ViewBag.Title = "Customers";
+}
+
+<h2>Customers</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Zipcode</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.Customers)
+            {
+                <tr>
+                    <th scope="row">@item.PersonID</th>
+                    <td>@item.Firstname @item.Lastname</td>
+                    <td>@item.Address</td>
+                    <td>@item.Zipcode</td>
+                    <td>@item.City</td>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

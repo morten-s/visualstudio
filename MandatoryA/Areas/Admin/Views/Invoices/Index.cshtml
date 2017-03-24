@@ -1,0 +1,39 @@
+﻿@model MandatoryA.Infrastructure.Repository
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Invoices</h2>
+
+<table class="table" align="center" style="width:400px; border-collapse:collapse; border: 2px solid  grey;">
+    <thead>
+        <tr>
+            <th>All Invoices</th>
+       </tr>
+    </thead>
+    <tbody>
+        @{ 
+            foreach (var item in Model.Reservations)
+            {
+                <tr>
+                    <td>#@item.ReservationID<br />
+                        @Html.ActionLink(item.Customer.Firstname + item.Customer.Lastname, "Invoice", new {id = item.Customer.PersonID })<br />
+                        @item.Customer.Address<br />
+                        @item.Customer.Zipcode @item.Customer.City<br /><br />
+                        Species: @item.Specie<br />
+                        Name: @item.Petname<br />
+                        Recieved by: @item.Employee.Firstname @item.Employee.Lastname<br /> 
+                        Period: @item.StartDate.ToString("dd-MM-yyyy") to @item.EndDate.ToString("dd-MM-yyyy")<br />
+                        Days: @((item.EndDate - item.StartDate).Days)<br />
+                        Price per day: @(Model.Prices[item.Specie].ToString("N")) kr.<br />
+                        Total: @(((item.EndDate - item.StartDate).Days * Model.Prices[item.Specie]).ToString("N")) kr.<br />
+
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+
+

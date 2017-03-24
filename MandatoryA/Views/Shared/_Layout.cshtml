@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Pet Hotel</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button><span>
+    <img src="~/Content/white-shark2.jpg" class="img-responsive img-circle pull-left" style="width:75px; margin:5px;"/>
+    @Html.ActionLink("Pet Hotel - we never bite", "Index", "Home", new { area = "" }, new { @class = "navbar-brand myheader" })
+</span>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home","Index", "Home", new { area = "" }, null)</li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Services</a></li>
+                    <li>@Html.ActionLink("Reservation", "CreateReservation", "Reservations", new { area = "" }, new { @class = "reservation" })</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">@Html.ActionLink("Administration Area", "Index", "AdminHome", new { area = "Admin" }, new { @class = "adminmenu" })</li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    
+
+    <div class="container body-content">
+        <div class="row">
+            <div id="main-content" class="col-md-9">
+                @RenderBody()
+            </div>
+
+            <div id="info-boxes" class="col-md-3">
+                @RenderSection("Contact", false)
+                @RenderSection("Pricelist", false)
+                @* the false parameter here means that the section IS NOT REQUIRED
+                to be defined for a given view, but if IT IS DEFINED then it will
+                be rendered here and using the css defined under the id "info-boxes"*@
+            </div>
+        </div>
+        <footer>
+            <hr />
+
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

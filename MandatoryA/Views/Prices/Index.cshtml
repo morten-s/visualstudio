@@ -1,0 +1,47 @@
+﻿@model MandatoryA.Infrastructure.Repository
+@{
+    ViewBag.Title = "Prices";
+}
+<style>
+    table {
+        border-collapse: collapse;
+        width:300px;
+        /*align center css style*/
+        margin-left:auto; 
+        margin-right:auto;
+    }
+
+    table, td{
+        border: 1px solid black;
+    }
+</style>
+
+<h2>Price list</h2>
+<p>Prices are per start day</p>
+<table>
+    <thead>
+        <tr>
+            <th>Specie</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ //make an ordered dictionary by chaining to ienumerable
+            foreach (var item in Model.Prices.OrderBy(key=>key.Key).ToDictionary(key=>key.Key, key=>key.Value))
+            {
+                <tr>
+                    <td>
+                        @item.Key
+                    </td>
+                    <td>
+                        @item.Value.ToString("N")
+                    </td>
+                </tr>
+            }
+            
+        }
+
+    </tbody>
+</table>
+
+

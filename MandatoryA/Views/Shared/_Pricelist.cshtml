@@ -1,0 +1,15 @@
+﻿@model Dictionary<string,int>
+
+@{
+    Layout = null;   
+}
+<div id="pricelist" class="container well">
+    <h3>Prices</h3>
+    <ul class="list-group">
+        @foreach (var kvp in Model) {
+            <li class="list-group-item">@kvp.Key @kvp.Value.ToString("N") kr.</li>
+
+        }
+    </ul>
+
+</div>

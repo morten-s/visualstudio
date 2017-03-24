@@ -1,0 +1,34 @@
+﻿@model MandatoryA.Infrastructure.Repository
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h2>Employees</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Initials</th>
+            <th>Phone</th>
+            <th>@Html.ActionLink("Add Employee", "CreateEmployee", "Employees",null, new { @class = "" })</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.Employees)
+            {
+                <tr>
+                    <th scope="row">@item.PersonID</th>
+                    <td>@item.Firstname @item.Lastname</td>
+                    <td>@item.Initials</td>
+                    <td>@item.Phone</td>
+                    <td>@Html.ActionLink("edit", "EditEmployee", "Employees", new { id=item.PersonID }, new { @class = "" })</td>
+                    <td>@Html.ActionLink("Delete", "DeleteEmployee", "Employees", new { id = item.PersonID }, new { @class = "" })</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

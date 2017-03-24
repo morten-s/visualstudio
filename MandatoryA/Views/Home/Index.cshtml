@@ -1,0 +1,42 @@
+﻿@model MandatoryA.Infrastructure.Repository
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Contact{
+    @Html.Partial("_ContactInfo")
+    }
+
+@section Pricelist{
+    @Html.Partial("_Pricelist", Model.Prices)
+    }
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>We care about animals</h1>
+        <img src="~/Content/white-shark2.jpg" />
+        <p>Browse our site for information and inspiration. Feel free to contact us for further information or go directly to reservation</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Go to reservation &raquo;</a></p>
+    </div>
+</div>
+
+<div class="container col-md-12">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Green earth</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Animals First</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Good service</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+</div>

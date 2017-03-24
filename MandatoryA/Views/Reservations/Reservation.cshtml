@@ -1,0 +1,34 @@
+﻿@model Tuple<MandatoryA.Models.Reservation, MandatoryA.Infrastructure.Repository>
+@{
+    ViewBag.Title = "Reservation";
+}
+
+<h2>Thank you for your Reservation</h2>
+
+<table class="table" align="center" style="width:400px; border-collapse:collapse; border: 2px solid  grey;">
+    <thead>
+        <tr>
+            <th>Reservation details:<br />
+                @Model.Item1.Customer.Firstname @Model.Item1.Customer.Lastname <br />
+                @Model.Item1.Customer.Address<br />
+                @Model.Item1.Customer.Zipcode @Model.Item1.Customer.City<br /><br />
+</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+                <tr>
+                    <td>
+                        Species: @Model.Item1.Specie<br />
+                        Name: @Model.Item1.Petname<br />
+                        Recieved by: @Model.Item1.Employee.Firstname @Model.Item1.Employee.Lastname<br />
+                        Period: @Model.Item1.StartDate.ToString("dd-MM-yyyy") to @Model.Item1.EndDate.ToString("dd-MM-yyyy")<br />
+                        Days: @((Model.Item1.EndDate - Model.Item1.StartDate).Days)<br />
+                        Price per day: @(Model.Item2.Prices[Model.Item1.Specie].ToString("N")) kr.<br />
+                        Total: @(((Model.Item1.EndDate - Model.Item1.StartDate).Days * Model.Item2.Prices[Model.Item1.Specie]).ToString("N")) kr.<br />
+
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
